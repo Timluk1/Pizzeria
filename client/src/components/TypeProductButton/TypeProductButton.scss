@@ -1,0 +1,24 @@
+.type-product {
+    background-color: #F9F9F9;
+    color: #2C2C2C;
+    padding: 13px 25px 13px 25px;
+    border: none;
+    border-radius: 30px;
+    margin-right: 9px;
+    margin-bottom: 32px;
+    cursor: pointer;
+    &:last-child {
+        margin-right: 0px;
+    }
+    // стили для текста
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.015em;
+    // стили для активной кнопки
+    &-active {
+        background-color: #282828;
+        color: #fff;
+    }
+
+}
