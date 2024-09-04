@@ -1,8 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
-import "dotenv/config";
 import cors from "cors";
-import { products } from "./data/products.js";
+import cookieParser from "cookie-parser";
+import "dotenv/config";
+import { router } from "./router/index.js";
+import errorMiddleware from "./middlewares/error-middleware.js"
 
 async function main() {
     try {
@@ -13,16 +15,21 @@ async function main() {
     }
 }
 
+const corsOptions = {
+    origin: 'http://localhost:5173', // Замените на ваш клиентский домен
+    credentials: true, // Разрешить отправку cookies и других учетных данных
+  };
+
 main();
+
 const app = express();
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
+app.use(cookieParser());
+app.use("/api", router);
 app.use("/images", express.static("uploads"));
-
-app.get("/products", (req, res) => {
-    return res.status(200).json(products);
-});
+app.use(errorMiddleware);
 
 app.listen(process.env.PORT, (error) => {
     if (error) {
@@ -30,3 +37,4 @@ app.listen(process.env.PORT, (error) => {
     }
     console.log("SERVER IS START");
 });
+

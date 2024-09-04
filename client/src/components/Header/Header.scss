@@ -29,38 +29,6 @@
     }
 }
 
-.cart-buton {
-    cursor: pointer;
-    display: flex;
-    background-color: #FE5F1E;
-    border-radius: 30px;
-    padding: 15px 23px 15px 23px;
-    border: none;
-    &__price {
-        margin-right: 13px;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
-        color: #ffff;
-    }   
-    &__line {
-        margin-right: 13px;
-        height: 100%;
-        width: 1px;
-        background-color: #fff;
-    }
-    &__img {
-        margin-right: 8px;
-    }
-
-    &__count {
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 19px;
-        color: #FFFFFF;
-    }
-}
-
 .line {
     height: 1px;
     width: 100%;

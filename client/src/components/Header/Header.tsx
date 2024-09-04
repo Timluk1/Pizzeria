@@ -1,8 +1,11 @@
 import PizzaIcon from "../../assets/icons/icon-pizza.svg";
-import CartIcon from "../../assets/icons/cart-icon.svg"
+import CartIndicator from "../CartIndicator/CartIndicator";
+import { useAppSelector } from "../../hooks/hooks";
 import "./Header.scss"
 
 function Header() {
+    const isAuth = useAppSelector((state) => state.auth.isAuth)
+
     return (
         <div>
             <header className="header">
@@ -13,14 +16,7 @@ function Header() {
                         <p className="header__text">самая вкусная пицца во вселенной</p>
                     </div>
                 </div>
-
-                <button className="header__cart-buton cart-buton">
-                    <p className="cart-buton__price">520 ₽</p>
-                    
-                    <div className="cart-buton__line"></div>
-                    <img className="cart-buton__img" src={CartIcon} alt="" />
-                    <p className="cart-buton__count">3</p>
-                </button>
+                {isAuth && <CartIndicator />}
             </header>
 
             <div className="line"></div>
