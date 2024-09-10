@@ -16,21 +16,28 @@
 
     &-items {
         display: grid;
-        grid-template-columns: repeat(4, 4fr);
+        grid-template-columns: repeat(4, 1fr); // Adjusted to be more responsive
         gap: 65px 35px;
         margin-bottom: 60px;
 
         @media (max-width: 1300px) {
-            grid-template-columns: repeat(3, 4fr);
+            grid-template-columns: repeat(3, 1fr); // 3 items on medium screens
+            gap: 50px 25px; // Adjust gaps for smaller screens
         }
 
         @media (max-width: 1060px) {
-            grid-template-columns: repeat(2, 4fr);
+            grid-template-columns: repeat(2, 1fr); // 2 items on smaller screens
+            gap: 40px 20px;
         }
 
-        @media (max-width: 700px) {
-            grid-template-columns: repeat(1, 4fr);
+        @media (max-width: 768px) { // Better for tablet
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px 15px;
+        }
+
+        @media (max-width: 600px) {
+            grid-template-columns: repeat(1, 1fr); // 1 item on mobile screens
+            gap: 20px 10px;
         }
     }
-
 }

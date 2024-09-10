@@ -68,15 +68,19 @@ function Product({ quantityInCart, imgPath, name, basePrice, doughTypes, sizeTyp
 
     return (
         <div className="product">
-            <img src={imgPath} alt={name} className="product__image" />
-            <h3 className="product__name">{name}</h3>
-            <div className="product__options">
-                <div className="product__types">{renderedDoughTypes}</div>
-                <div className="product__sizes">{renderedSizeTypes}</div>
+            <div>
+                <img src={imgPath} alt={name} className="product__image" />
+                <h3 className="product__name">{name}</h3>
             </div>
-            <div className="product__footer">
-                <p className="product__price">{price} ₽</p>
-                {renderedButtonAdd}
+            <div>
+                <div className="product__options">
+                    <div className="product__types">{renderedDoughTypes}</div>
+                    <div className="product__sizes">{renderedSizeTypes}</div>
+                </div>
+                <div className="product__footer">
+                    <p className="product__price">{price} ₽</p>
+                    {renderedButtonAdd}
+                </div>
             </div>
         </div>
     );

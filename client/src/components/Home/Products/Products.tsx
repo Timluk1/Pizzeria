@@ -2,6 +2,7 @@ import { usePagination } from "../../../hooks/usePagination.ts";
 import Product from "../Product/Product.tsx";
 import Pagination from "../../Helps/Pagination/Pagination.tsx";
 import { ProductsProps} from "./types.ts"
+import { useEffect } from "react";
 import "./Products.scss";
 
 function Products({products}: ProductsProps) {
@@ -11,6 +12,13 @@ function Products({products}: ProductsProps) {
     const renderedProducts = currentData.map((element) => (
         <Product {...element} key={element.productId} />
     ));
+
+    useEffect(() => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }, [activePage]);
 
     return (
         <div className="products">

@@ -29,7 +29,7 @@ function Home() {
 
 
     return isAuth ? (
-        productsLoading || !products.length
+        productsLoading || products === null || !products.length
         ?
         <>
             <Header />

@@ -4,7 +4,7 @@ import { FetchCartStateI, AddProductToCartDetailedState } from "./types";
 
 const fetchCartState: FetchCartStateI = {
     loading: false,
-    productsCart: [],
+    productsCart: null,
     error: null
 }
 
@@ -16,9 +16,15 @@ const addProductToCartDetailedState: AddProductToCartDetailedState = {
     error: null
 }
 
+const clearAllCart = {
+    loading: false,
+    error: null
+}
+
 const initialState = {
     cart: fetchCartState,
     addProductToCartDetailed: addProductToCartDetailedState,
+    clearAllCart: clearAllCart,
     cartLength: 0,
     cartSum: 0
 }
@@ -28,7 +34,7 @@ export const cartSlice = createSlice({
     initialState,
     reducers: {
         clearCart: (state) => {
-            state.cart.productsCart = [];
+            state.cart.productsCart = null;
         }
     },
     extraReducers: (builder) => {
@@ -100,20 +106,20 @@ export const cartSlice = createSlice({
         // полная очистка корзины
         builder
             .addCase(deleteFullCart.pending, (state, action) => {
-                state.addProductToCartDetailed.loading = true;
+                state.clearAllCart.loading = true;
             })
 
         builder
             .addCase(deleteFullCart.fulfilled, (state, action) => {
-                state.addProductToCartDetailed.loading = false;
-                state.cart.productsCart = action.payload.products;
-                state.cartLength = state.cart.productsCart.reduce((sum: number, { quantity }) => sum + quantity, 0);
-                state.cartSum = state.cart.productsCart.reduce((sum: number, { quantity, price }) => sum + (quantity * price), 0);
+                state.clearAllCart.loading = false;
+                state.cart.productsCart = [];
+                state.cartLength = 0;
+                state.cartSum = 0;
             })
 
         builder
             .addCase(deleteFullCart.rejected, (state, action) => {
-                state.addProductToCartDetailed.loading = false;
+                state.clearAllCart.loading = false;
             })
     }
 });

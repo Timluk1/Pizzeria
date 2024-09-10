@@ -58,7 +58,7 @@ export interface CartResponse {
 
 export interface FetchCartStateI {
     loading: boolean;
-    productsCart: Product[];
+    productsCart: Product[] | null;
     error: null | AuthErrorResponse ;
 }
 

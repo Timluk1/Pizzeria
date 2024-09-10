@@ -66,7 +66,7 @@ export const productsSlice = createSlice({
         },
 
         clearProductsData: (state) => {
-            state.productsData = [];
+            state.productsData = null;
         }
     },
     extraReducers: (builder) => {
