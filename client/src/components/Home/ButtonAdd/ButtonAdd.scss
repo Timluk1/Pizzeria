@@ -1,0 +1,27 @@
+.product__add-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: #FE5F1E; 
+    padding: 10px 15px;
+    border: 1px solid #FE5F1E;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #f48f63; 
+    }
+
+    &-text {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: #FFFFFF;
+      margin-right: 7px;
+    }
+
+    &-img {
+      margin-right: 7px;
+    }
+}
+ 

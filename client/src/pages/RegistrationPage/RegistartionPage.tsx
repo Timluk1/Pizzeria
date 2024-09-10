@@ -1,6 +1,6 @@
-import Header from "../../components/Header/Header";
-import Registration from "../../components/Registration/Registration";
-import { useAppSelector } from "../../hooks/hooks";
+import Header from "../../components/Home/Header/Header";
+import Registration from "../../components/Auth/Registration/Registration";
+import { useAppSelector } from "../../hooks/useAppSelector";
 import { Navigate } from "react-router-dom";
 
 function RegistartionPage() {

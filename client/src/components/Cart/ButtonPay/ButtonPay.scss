@@ -1,0 +1,17 @@
+.button-pay {
+    cursor: pointer;
+    background: #FE5F1E;
+    border-radius: 30px;
+    border: none;
+    padding: 18px;
+    &__text {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+    &:hover {
+        background: #ff7f4c;
+    }
+}

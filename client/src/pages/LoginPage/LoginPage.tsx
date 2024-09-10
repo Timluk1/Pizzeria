@@ -1,6 +1,6 @@
-import Header from "../../components/Header/Header";
-import Login from "../../components/Login/Login";
-import { useAppSelector } from "../../hooks/hooks";
+import Header from "../../components/Home/Header/Header";
+import Login from "../../components/Auth/Login/Login";
+import { useAppSelector } from "../../hooks/useAppSelector";
 import { Navigate } from "react-router-dom";
 
 function LoginPage() {

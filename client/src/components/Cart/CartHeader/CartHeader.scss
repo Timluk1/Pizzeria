@@ -1,0 +1,42 @@
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 61px;
+    &__left {
+        display: flex;
+    }
+    &__cart-icon {
+        margin-right: 17px;
+    }
+    &__title {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 39px;
+        letter-spacing: 0.01em;
+        color: #000000;
+        &-container {
+            display: flex;
+            align-items: center;
+        }
+    }
+    &__right {
+        display: flex;
+        cursor: pointer;
+    }
+    &__trash-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 3px;
+    }
+    &__cat-icon {
+        width: 29px;
+        height: 29px;
+    }
+    &__clear-text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        color: #B6B6B6;
+    }
+}

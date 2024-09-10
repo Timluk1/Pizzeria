@@ -1,0 +1,36 @@
+.products {
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 39px;
+        letter-spacing: 0.01em;
+        color: #000000;
+        margin-bottom: 35px;
+    }
+
+    &-items {
+        display: grid;
+        grid-template-columns: repeat(4, 4fr);
+        gap: 65px 35px;
+        margin-bottom: 60px;
+
+        @media (max-width: 1300px) {
+            grid-template-columns: repeat(3, 4fr);
+        }
+
+        @media (max-width: 1060px) {
+            grid-template-columns: repeat(2, 4fr);
+        }
+
+        @media (max-width: 700px) {
+            grid-template-columns: repeat(1, 4fr);
+        }
+    }
+
+}

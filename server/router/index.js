@@ -23,4 +23,5 @@ router.get("/products", authenticateToken, productsController.getProducts);
 router.get("/cart", authenticateToken, productsController.getCart);
 router.post("/cart", authenticateToken, productsController.updateCart);
 router.delete("/cart", authenticateToken, productsController.deleteCart);
+router.delete("/fullCart", authenticateToken, productsController.deleteFullCart);
 

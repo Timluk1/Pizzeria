@@ -22,6 +22,7 @@ const sizeTypeSchema = new Schema(
 
 // Main schema for products
 const productSchema = new Schema({
+  qunityInCart: { type: Number, required: true },
   name: { type: String, required: true },
   imgPath: { type: String, required: true },
   basePrice: { type: Number, required: true },

@@ -1,6 +1,6 @@
 import { validationResult } from "express-validator";
-import userService from "../service/user-service.js";
-import tokenService from "../service/token-service.js";
+import userService from "../services/user-service.js";
+import tokenService from "../services/token-service.js";
 import { ValidationError } from "../utils/errors.js";
 
 class UserController {

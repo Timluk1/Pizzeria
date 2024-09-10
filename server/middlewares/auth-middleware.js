@@ -1,4 +1,4 @@
-import tokenService from "../service/token-service.js";
+import tokenService from "../services/token-service.js";
 import { ValidationError, UnauthorizedError } from "../utils/errors.js"
 
 export async function authenticateToken(req, res, next) {

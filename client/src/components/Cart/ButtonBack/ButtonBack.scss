@@ -1,0 +1,22 @@
+.button-back {
+    cursor: pointer;
+    border-radius: 30px;
+    border: 1.5px solid #D3D3D3;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    &__img {
+        margin-right: 8px;
+    }
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: #CACACA;
+    }
+    &:hover {
+        background: #f3f3f3;
+    }
+}
