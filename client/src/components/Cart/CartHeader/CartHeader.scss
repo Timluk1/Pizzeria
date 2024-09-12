@@ -3,8 +3,13 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 61px;
+
     &__left {
         display: flex;
+        align-items: center;
+        @media (max-width: 500px) {
+            margin-bottom: 10px;
+        }
     }
     &__cart-icon {
         margin-right: 17px;
@@ -19,6 +24,9 @@
             display: flex;
             align-items: center;
         }
+        @media (max-width: 500px) {
+            font-size: 29x;
+        }
     }
     &__right {
         display: flex;
@@ -29,14 +37,15 @@
         height: 20px;
         margin-right: 3px;
     }
-    &__cat-icon {
-        width: 29px;
-        height: 29px;
-    }
     &__clear-text {
         font-weight: 400;
         font-size: 16px;
         line-height: 19px;
         color: #B6B6B6;
+    }
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+        margin-bottom: 20px;
     }
 }

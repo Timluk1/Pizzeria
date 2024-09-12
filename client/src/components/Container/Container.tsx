@@ -1,15 +1,16 @@
 import { ReactNode } from "react";
+import "./Container.scss"
 
 interface ContainerProps {
-  children: ReactNode;
+    children: ReactNode;
 }
 
 function Container({ children }: ContainerProps) {
-  return (
-    <div className="container" style={{ padding: "0px 77px 0px 77px"}}>
-      {children}
-    </div>
-  );
+    return (
+        <div className="container">
+            {children}
+        </div>
+    );
 }
 
 export default Container;

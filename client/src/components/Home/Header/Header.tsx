@@ -1,11 +1,14 @@
-import PizzaIcon from "../../../assets/icons/icon-pizza.svg"
+import PizzaIcon from "../../../assets/icons/icon-pizza.svg";
 import CartIndicator from "../CartIndicator/CartIndicator";
 import { useAppSelector } from "../../../hooks/useAppSelector";
-import "./Header.scss"
+import MenuIcon from "../../../assets/icons/icon-menu.svg";
+import { HeaderProps } from "./types";
+import "./Header.scss";
 
-function Header() {
+function Header({setShowMenu}: HeaderProps) {
     const isAuth = useAppSelector((state) => state.auth.isAuth);
-    
+    const handleClickMenu = () => setShowMenu(true)
+
     return (
         <div>
             <header className="header">
@@ -16,7 +19,12 @@ function Header() {
                         <p className="header__text">самая вкусная пицца</p>
                     </div>
                 </div>
-                {isAuth && <CartIndicator />}
+                {isAuth && (
+                    <>
+                        <CartIndicator />
+                        <img src={MenuIcon} alt="" className="menu-burger" onClick={handleClickMenu}/>
+                    </>
+                )}
             </header>
 
             <div className="line"></div>

@@ -12,6 +12,10 @@
         display: flex;
         align-items: center;
         flex-grow: 1;
+        @media (max-width: 700px) {
+            flex-direction: column;
+            margin-bottom: 15px; 
+        }
     }
 
     &__image {
@@ -20,6 +24,13 @@
         margin-right: 15px;
         border-radius: 50%;
         object-fit: cover;
+        @media (max-width: 700px) {
+            width: 200px;
+            height: 200px;
+            border-radius: 0;
+            margin-bottom: 10px;
+            margin-right: 0px;
+        }
     }
 
     &__info {
@@ -31,12 +42,21 @@
         font-size: 18px;
         font-weight: bold;
         margin: 0;
+        @media (max-width: 700px) {
+            font-size: 24px;
+            text-align: center;
+        }
     }
 
     &__description {
         font-size: 14px;
         color: #9e9e9e;
         margin: 5px 0 0 0;
+        @media (max-width: 700px) {
+            font-size: 19px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
     }
 
     &__quantity {
@@ -45,6 +65,9 @@
         justify-content: center;
         gap: 10px;
         min-width: 100px;
+        @media (max-width: 700px) {
+            margin-bottom: 15px;
+        }
     }
 
     &__button {
@@ -72,6 +95,7 @@
     }
 
     &__remove {
+        position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -86,6 +110,17 @@
             width: 16px;
             height: 16px;
         }
+        @media (max-width: 700px) {
+            position: absolute;
+            right: 6px;
+            top: 6px;
+        }
+
+    }
+    @media (max-width: 700px) {
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 

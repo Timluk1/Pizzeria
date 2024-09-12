@@ -12,31 +12,38 @@
         letter-spacing: 0.01em;
         color: #000000;
         margin-bottom: 35px;
+        text-align: center; 
+
+        @media (max-width: 600px) {
+            font-size: 28px;
+            line-height: 22px;
+            margin-bottom: 15px;
+        }
     }
 
     &-items {
         display: grid;
-        grid-template-columns: repeat(4, 1fr); // Adjusted to be more responsive
+        grid-template-columns: repeat(4, 1fr); 
         gap: 65px 35px;
         margin-bottom: 60px;
 
         @media (max-width: 1300px) {
-            grid-template-columns: repeat(3, 1fr); // 3 items on medium screens
-            gap: 50px 25px; // Adjust gaps for smaller screens
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 50px 25px;
         }
 
         @media (max-width: 1060px) {
-            grid-template-columns: repeat(2, 1fr); // 2 items on smaller screens
+            grid-template-columns: repeat(2, 1fr);
             gap: 40px 20px;
         }
 
-        @media (max-width: 768px) { // Better for tablet
+        @media (max-width: 768px) {
             grid-template-columns: repeat(2, 1fr);
             gap: 30px 15px;
         }
 
         @media (max-width: 600px) {
-            grid-template-columns: repeat(1, 1fr); // 1 item on mobile screens
+            grid-template-columns: repeat(1, 1fr);
             gap: 20px 10px;
         }
     }

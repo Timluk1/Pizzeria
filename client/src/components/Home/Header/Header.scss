@@ -8,7 +8,7 @@
 
     &__icon {
         margin-right: 17px;
-        width: 38px;
+        width: 33px;
         height: 38px;
     }
 
@@ -34,8 +34,20 @@
         color: #7B7B7B;
     }
 
-    @media (max-width: 768px) {
+    .menu-burger {
+        width: 35px;
+        height: 35px;
+        display: none;
+    }
+
+    @media (max-width: 700px) {
         margin-bottom: 20px;
+
+        .menu-burger {
+            display: block;
+            width: 30px;
+            height: 30px;
+        }
 
         &__content {
             margin-bottom: 10px;

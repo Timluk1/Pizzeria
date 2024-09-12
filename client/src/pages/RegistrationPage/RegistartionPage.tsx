@@ -11,10 +11,7 @@ function RegistartionPage() {
     <Navigate to="/home" replace />
     :
     (
-        <>
-            <Header />
-            <Registration />
-        </>
+        <Registration />
     );
 }
 

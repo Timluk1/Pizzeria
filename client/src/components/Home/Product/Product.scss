@@ -7,10 +7,6 @@
     margin: 0 auto;
     transition: transform 0.3s ease;
 
-    &:hover {
-        transform: translateY(-3px);
-    }
-
     &__image {
         width: 100%;
         height: auto;
@@ -36,6 +32,9 @@
         border-radius: 6px;
         margin-bottom: 10px;
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        @media (max-width: 768px) {
+            padding: 8px;
+        }
     }
 
     &__types,
@@ -80,6 +79,12 @@
         padding-top: 10px;
         border-top: 1px solid #e5e5e5;
         margin-top: 10px;
+        @media (max-width: 768px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
     }
 
     &__price {
@@ -87,6 +92,9 @@
         font-size: 18px;
         line-height: 22px;
         color: #000;
+        @media (max-width: 768px) {
+            margin-bottom: 8px;
+        }
     }
 
     &__add-button {
@@ -111,6 +119,12 @@
 
         &-img {
             margin-right: 5px;
+        }
+
+        @media (max-width: 768px) {
+            width: 100%;
+            justify-content: center;
+            padding: 8px 12px;
         }
     }
 
@@ -148,25 +162,6 @@
     }
 
     @media (max-width: 768px) {
-        max-width: 100%;
-        &__options {
-            padding: 8px;
-        }
-
-        &__footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-
-            .product__price {
-                margin-bottom: 8px;
-            }
-        }
-
-        &__add-button,
-        &__add-button-active {
-            padding: 6px 12px;
-        }
+        max-width: 80%;
     }
 }

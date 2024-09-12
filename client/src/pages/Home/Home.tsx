@@ -1,4 +1,3 @@
-import Header from "../../components/Home/Header/Header";
 import Products from "../../components/Home/Products/Products";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { validateAndRefreshToken } from "../../store/reducers/auth/asyncActions";
@@ -32,12 +31,10 @@ function Home() {
         productsLoading || products === null || !products.length
         ?
         <>
-            <Header />
             <LoaderButton color="#FE5F1E" size={180}/>
         </>
         :
         <>
-            <Header />
             <TypesProduct />
             <Products products={products}/>
         </>
