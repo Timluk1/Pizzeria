@@ -15,8 +15,8 @@ git clone https://github.com/Timluk1/Pizzeria.git
 ## Как работает приложение
 
 <p align="center">
-  <video src="https://github.com/user-attachments/assets/e0c18da7-e278-4555-95f2-7b1461eb8df8" type="video/mp4" controls>
-    Ваш браузер не поддерживает встроенные видео.
+  <video src="" type="video/mp4" controls>
+    Ваш браузер не поддерживает встроенные видео. <a href="https://github.com/user-attachments/assets/e0c18da7-e278-4555-95f2-7b1461eb8df8">Скачайте видео</a>.
   </video>
 </p>
 
