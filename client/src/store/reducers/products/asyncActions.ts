@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ProductType, AuthErrorResponse, CartRequest, CartResponse } from "./types";
+import { ProductType, AuthErrorResponse } from "./types";
+
+const API_PATH = import.meta.env.VITE_API_PATH;
 
 const fetchProducts = createAsyncThunk<ProductType[], void, { rejectValue: AuthErrorResponse }>(
     'products/fetchProducts',
@@ -10,7 +12,7 @@ const fetchProducts = createAsyncThunk<ProductType[], void, { rejectValue: AuthE
             authorization: "Bearer " + localStorage.getItem("accessToken"),
         };
         
-        const res = await fetch("http://localhost:4000/api/products", {
+        const res = await fetch(`${API_PATH}/products`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

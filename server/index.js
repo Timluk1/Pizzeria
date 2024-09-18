@@ -2,32 +2,35 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import "dotenv/config";
 import { router } from "./router/index.js";
 import errorMiddleware from "./middlewares/error-middleware.js"
+import { main2 } from "./data/products.js";
+import "dotenv/config";
 
 async function main() {
-    try {
+    try { 
         await mongoose.connect(process.env.MONGO_PATH);
+        await main2();
         console.log("DB CONNECT");
     } catch (error) {
         console.log("DB ERROR", error);
     }
 }
 
-const corsOptions = {
-    origin: 'http://localhost:5173', // Замените на ваш клиентский домен
-    credentials: true, // Разрешить отправку cookies и других учетных данных
-  };
-
 main();
 
 const app = express();
 
+const corsOptions = {
+    origin: process.env.CLIENT_URL, 
+    credentials: true, 
+    optionsSuccessStatus: 200, 
+};
+
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
-app.use("/api", router);
+app.use("/", router);
 app.use("/images", express.static("uploads"));
 app.use(errorMiddleware);
 

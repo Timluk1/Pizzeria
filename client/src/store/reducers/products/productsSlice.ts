@@ -66,7 +66,7 @@ export const productsSlice = createSlice({
         },
 
         clearProductsData: (state) => {
-            state.productsData = null;
+            state.productsData = [];
         }
     },
     extraReducers: (builder) => {
@@ -83,15 +83,12 @@ export const productsSlice = createSlice({
                 state.loading = false;
                 // устновливаем в сотояние полученные с сервера продукты
                 state.productsData = action.payload;
-                console.log(state.productsData);
             })
 
         builder
-            .addCase(fetchProducts.rejected, (state, action) => {
+            .addCase(fetchProducts.rejected, (state) => {
                 // товары не загрузились
                 state.loading = false;
-                // выводим ошибку
-                console.log(action.payload)
             })
     }
 });

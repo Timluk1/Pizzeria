@@ -51,7 +51,7 @@ class UserController {
     async logout(req, res, next) {
         try {
             res.clearCookie("refreshToken");
-            return res.status(200).json({ message: "Successfully logged out" });
+            return res.status(200).json({ message: "Успешно вышли из аккаунта" });
         } catch (error) {
             next(error);
         }
@@ -59,13 +59,10 @@ class UserController {
 
     async refresh(req, res, next) {
         try {
-            console.log("ФУНКЦИЯ РЕФРЕША ТОКЕНА БЫЛА ВЫЗВАНА")
             const refreshToken = req.cookies.refreshToken;
 
             if (!refreshToken) {
-                return res
-                    .status(401)
-                    .json({ message: "Unauthorized, no refresh token" });
+                throw new ValidationError("Токен не передан");
             }
             const data = await userService.refresh(refreshToken);
             const { accessToken, user } = data;
@@ -82,7 +79,7 @@ class UserController {
             const accesToken = authHeader && authHeader.split(" ")[1];
 
             if (!accesToken) {
-                throw new ValidationError("Token is required");
+                throw new ValidationError("Токен не передан");
             }
 
             const { valid } = await tokenService.verifyAccesToken(accesToken);

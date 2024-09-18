@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { InitialStateAuth } from "./types";
 import { registration, login, validateAndRefreshToken } from "./asyncActions";
+import { getErrorTextAuth } from '../../../utils/auth/authErrosHelps';
 
 // Извлекаем из localstorage данные о пользователе
 const initialState: InitialStateAuth = {
     isAuth: Boolean(localStorage.getItem("isAuth")) || false,
     loading: null,
-    error: null,
+    error: "",
     accessToken: String(localStorage.getItem("accesToken")) || "",
     email: String(localStorage.getItem("email")) || "",
     userId: String(localStorage.getItem("userId")) || "",
@@ -18,7 +19,7 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         clearError: (state) => {
-            state.error = null
+            state.error = ""
         }
     },
     extraReducers: (builder) => {
@@ -50,9 +51,7 @@ const authSlice = createSlice({
                 state.loading = false;
                 if (action.payload) {
                     // если есть ошибка устанавливаем ее в сотояние
-                    state.error = action.payload;
-                    // выводим ошибку
-                    console.log(state.error);
+                    state.error = getErrorTextAuth(action.payload);
                 }
             })
 
@@ -85,9 +84,7 @@ const authSlice = createSlice({
                 state.loading = false;
                 if (action.payload) {
                     // если есть ошибка устанавливаем ее в сотояние
-                    state.error = action.payload;
-                    // выводим ошибку
-                    console.log(action.payload);
+                    state.error = getErrorTextAuth(action.payload);
                 }
             })
 

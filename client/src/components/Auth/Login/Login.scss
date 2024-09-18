@@ -7,18 +7,34 @@
     margin: 0px auto;
     text-align: center;
 
+    @media (max-width: 600px) {
+        padding: 20px;
+        max-width: 90%;
+    }
+
     .error-text {
         color: red;
+        font-size: 14px;
+
+        @media (max-width: 600px) {
+            font-size: 12px;
+        }
     }
 
     h2 {
         margin-bottom: 20px;
         font-size: 24px;
         color: #2c2c2c;
+
+        @media (max-width: 600px) {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
     }
 
     .login-form {
         margin-bottom: 20px;
+
         .form-group {
             margin-bottom: 20px;
             text-align: left;
@@ -28,6 +44,10 @@
                 font-size: 14px;
                 margin-bottom: 5px;
                 color: #2c2c2c;
+
+                @media (max-width: 600px) {
+                    font-size: 12px;
+                }
             }
 
             input {
@@ -36,6 +56,11 @@
                 border: 1px solid #ccc;
                 border-radius: 8px;
                 font-size: 16px;
+
+                @media (max-width: 600px) {
+                    padding: 8px;
+                    font-size: 14px;
+                }
             }
         }
 
@@ -51,6 +76,11 @@
             font-weight: 700;
             transition: background-color 0.3s ease;
 
+            @media (max-width: 600px) {
+                padding: 12px;
+                font-size: 14px;
+            }
+
             &:hover {
                 background-color: #d94813;
             }
@@ -61,6 +91,11 @@
         margin-top: 15px;
         font-size: 14px;
         color: #2c2c2c;
+
+        @media (max-width: 600px) {
+            font-size: 12px;
+            margin-top: 10px;
+        }
 
         a {
             color: #fe5f1e;

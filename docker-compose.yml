@@ -1,0 +1,29 @@
+version: '3.8'
+
+networks:
+  dev:
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - server
+      - client
+    networks:
+      - dev
+
+  server:
+    build:
+      context: ./server
+    networks:
+      - dev
+
+  client:
+    build:
+      context: ./client
+    networks:
+      - dev

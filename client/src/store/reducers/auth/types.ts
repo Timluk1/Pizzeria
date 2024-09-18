@@ -7,7 +7,7 @@ export interface AuthErrorResponse {
 export interface InitialStateAuth {
     isAuth: boolean,
     loading: boolean | null,
-    error: null | AuthErrorResponse,
+    error: string,
     accessToken: string,
     email: string,
     userId: string,

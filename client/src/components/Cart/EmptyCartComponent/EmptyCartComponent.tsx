@@ -6,7 +6,7 @@ function EmptyCartComponent() {
         <div className="empty-cart-component">
             <img
                 className="empty-cart-component__img"
-                src="https://cdn.dodostatic.net/site-static/dist/assets/5aa5dac99a832c62f3ef..svg"
+                src=""
                 alt=""
             />
             <h3 className="empty-cart-component__title">Корзина пустая(</h3>

@@ -34,7 +34,7 @@ class TokenService {
             return { valid: true, expired: false, message: decoded };
         } catch (error) {
             if (error.name === 'TokenExpiredError') {
-                console.error('Token has expired:', error.message);
+
                 return { valid: false, expired: true, message: 'Token has expired' };
             } else {
                 console.error('Token verification failed:', error.message);
@@ -49,7 +49,6 @@ class TokenService {
             return { valid: true, expired: false, message: decoded };
         } catch(error) {
             if (error.name === 'TokenExpiredError') {
-                console.error('Token has expired:', error.message);
                 return { valid: false, expired: true, message: 'Token has expired' };
             } else {
                 console.error('Token verification failed:', error.message);

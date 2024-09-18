@@ -34,11 +34,11 @@ function Menu({ showMenu, setShowMenu }: MenuProps) {
             case "/home":
                 navigate("/cart");
                 break;
-            case "/cart":
+            case "/empty-cart":
                 navigate("/home");
                 break;
             case "/cart":
-                navigate("/empty-cart");
+                navigate("/home");
                  break;
         }
     }

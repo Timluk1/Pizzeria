@@ -25,7 +25,7 @@ export interface ProductType {
 export interface InitialStateProducts {
     productsData: ProductType[];
     loading: boolean | null;
-    error: string | null;
+    error: null | AuthErrorResponse;
 }
 
 export interface AuthErrorResponse {

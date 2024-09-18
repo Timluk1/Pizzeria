@@ -55,7 +55,9 @@ export const cartSlice = createSlice({
         builder
             .addCase(fetchCart.rejected, (state, action) => {
                 state.cart.loading = false;
-                state.cart.error = action.payload;
+                if (action.payload) {
+                    state.cart.error = action.payload;
+                }
             })
 
         // добавление товара в корззину
@@ -77,7 +79,7 @@ export const cartSlice = createSlice({
             })
 
         builder
-            .addCase(addProductToCart.rejected, (state, action) => {
+            .addCase(addProductToCart.rejected, (state) => {
                 state.addProductToCartDetailed.loading = false;
             })
 
@@ -100,17 +102,17 @@ export const cartSlice = createSlice({
             })
 
         builder
-            .addCase(deleteProductFromCart.rejected, (state, action) => {
+            .addCase(deleteProductFromCart.rejected, (state) => {
                 state.addProductToCartDetailed.loading = false;
             })
         // полная очистка корзины
         builder
-            .addCase(deleteFullCart.pending, (state, action) => {
+            .addCase(deleteFullCart.pending, (state) => {
                 state.clearAllCart.loading = true;
             })
 
         builder
-            .addCase(deleteFullCart.fulfilled, (state, action) => {
+            .addCase(deleteFullCart.fulfilled, (state) => {
                 state.clearAllCart.loading = false;
                 state.cart.productsCart = [];
                 state.cartLength = 0;
@@ -118,7 +120,7 @@ export const cartSlice = createSlice({
             })
 
         builder
-            .addCase(deleteFullCart.rejected, (state, action) => {
+            .addCase(deleteFullCart.rejected, (state) => {
                 state.clearAllCart.loading = false;
             })
     }

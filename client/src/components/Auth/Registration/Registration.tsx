@@ -3,40 +3,54 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../../hooks/useAppDispatch.ts";
 import { useAppSelector } from "../../../hooks/useAppSelector.ts";
 import { registration } from "../../../store/reducers/auth/asyncActions.ts";
+import { useActions } from "../../../hooks/useActions.ts";
 import "./Registration.scss";
 
 function Registration() {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    const errorAuth = useAppSelector((state) => state.auth.error);
+    const errorAuth: string = useAppSelector((state) => state.auth.error);
+    const isAuth = useAppSelector((state) => state.auth.isAuth)
+    const { clearError } = useActions();
+
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleChangeUserName = (event: ChangeEvent<HTMLInputElement>): void => {
-        setUserName(event.target.value);
+    // если пользователь авторизован и нет ошибок регистрации делаем редирект
+    if (!errorAuth && isAuth) {
+        navigate("/home")
     }
-    const handleChangePassword = (event: ChangeEvent<HTMLInputElement>): void => {
-        setPassword(event.target.value)
-    };
-    const handleChangeEmail = (event: ChangeEvent<HTMLInputElement>): void => {
-        setEmail(event.target.value)
-    };
 
+    // обработчик изменения имени пользователя
+    function handleChangeUserName(event: ChangeEvent<HTMLInputElement>) {
+        setUserName(event.target.value);
+        clearError();
+    }
+
+    // обработчик изменения пароля
+    function handleChangePassword(event: ChangeEvent<HTMLInputElement>) {
+        setPassword(event.target.value);
+        clearError();
+    }
+
+    // обработчик изменения email
+    function handleChangeEmail(event: ChangeEvent<HTMLInputElement>) {
+        setEmail(event.target.value);
+        clearError();
+    }
+
+    // обработчик отправки формы
     async function onClick(event: React.MouseEvent<HTMLButtonElement>) {
         event.preventDefault();
-        try {
-            await dispatch(
-                registration({
-                    email: email,
-                    password: password,
-                })
-            );
-            navigate("/home");
-        } catch (err) {
-            console.error("Failed to register:", err);
-        }
+        // пробуем зарегистрироваться
+        await dispatch(
+            registration({
+                email: email,
+                password: password,
+            })
+        );
     }
 
     return (
@@ -84,12 +98,7 @@ function Registration() {
                     Зарегистрироваться
                 </button>
             </form>
-            {errorAuth 
-            ? 
-            <p className="error-text">Ошибка, пожалуйста, проверьте корректность данных</p>
-            :
-            null
-            }
+            <p className="error-text">{errorAuth}</p>
             <p className="redirect">
                 Уже есть аккаунт? <Link to="/login">Войдите</Link>
             </p>

@@ -9,7 +9,7 @@ function ButtonAdd({ props }: ButtonAddProps) {
     const loadingAddToCart = useAppSelector(
         (state) => state.cart.addProductToCartDetailed.loading
     );
-    const { productIdState, doughTypeState, sizeTypeState} = useAppSelector(
+    const { productIdState } = useAppSelector(
         (state) => state.cart.addProductToCartDetailed
     );
 

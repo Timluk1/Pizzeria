@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import {  AuthErrorResponse, CartRequest, CartResponse } from './types';
 
+const API_PATH = import.meta.env.VITE_API_PATH;
+
 const fetchCart = createAsyncThunk<CartResponse, void, { rejectValue: AuthErrorResponse }>(
     'cart/fetchCart',
     async (_, { rejectWithValue }) => {
@@ -10,7 +12,7 @@ const fetchCart = createAsyncThunk<CartResponse, void, { rejectValue: AuthErrorR
             authorization: "Bearer " + localStorage.getItem("accessToken"),
         };
         
-        const res = await fetch("http://localhost:4000/api/cart", {
+        const res = await fetch(`${API_PATH}/cart`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -45,7 +47,7 @@ const addProductToCart = createAsyncThunk<CartResponse, CartRequest, { rejectVal
             authorization: "Bearer " + localStorage.getItem("accessToken"),
         };
         
-        const res = await fetch("http://localhost:4000/api/cart", {
+        const res = await fetch(`${API_PATH}/cart`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -80,7 +82,7 @@ const deleteProductFromCart = createAsyncThunk<CartResponse, CartRequest, { reje
             authorization: "Bearer " + localStorage.getItem("accessToken"),
         };
         
-        const res = await fetch("http://localhost:4000/api/cart", {
+        const res = await fetch(`${API_PATH}/cart`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -107,7 +109,7 @@ const deleteFullCart = createAsyncThunk<CartResponse, void, { rejectValue: AuthE
             authorization: "Bearer " + localStorage.getItem("accessToken"),
         };
         
-        const res = await fetch("http://localhost:4000/api/fullCart", {
+        const res = await fetch(`${API_PATH}/fullCart`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -118,7 +120,6 @@ const deleteFullCart = createAsyncThunk<CartResponse, void, { rejectValue: AuthE
 
         const data = await res.json();
 
-        console.log(data);
 
         if (!res.ok) {
             // Обработка ошибок HTTP

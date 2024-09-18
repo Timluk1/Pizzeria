@@ -4,41 +4,42 @@ import { useAppSelector } from "../../../hooks/useAppSelector";
 import { Link } from "react-router-dom";
 import { login } from "../../../store/reducers/auth/asyncActions";
 import { useNavigate } from "react-router-dom";
-import "./Login.scss"
 import { useActions } from "../../../hooks/useActions";
+import "./Login.scss";
 
 function Login() {
     const dispatch = useAppDispatch();
 
     const errorAuth = useAppSelector((state) => state.auth.error);
+    const isAuth = useAppSelector((state) => state.auth.isAuth);
     const { clearError } = useActions();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const navigate = useNavigate();
 
-    const handleChangePassword = (event: ChangeEvent<HTMLInputElement>): void => {
-        setPassword(event.target.value);
-        clearError()
+    if (!errorAuth && isAuth) {
+        navigate("/home");
     }
-    const handleChangeEmail = (event: ChangeEvent<HTMLInputElement>): void => {
+
+    function handleChangePassword(event: ChangeEvent<HTMLInputElement>) {
+        setPassword(event.target.value);
+        clearError();
+    }
+
+    function handleChangeEmail(event: ChangeEvent<HTMLInputElement>) {
         setEmail(event.target.value);
-        clearError()
+        clearError();
     }
 
     async function onClick(event: React.MouseEvent<HTMLButtonElement>) {
         event.preventDefault();
-        try {
-            await dispatch(
-                login({
-                    email: email,
-                    password: password,
-                })
-            );
-            navigate("/home");
-        } catch (err) {
-            console.error("Failed to register:", err);
-        }
+        await dispatch(
+            login({
+                email: email,
+                password: password,
+            })
+        );
     }
 
     return (
@@ -67,16 +68,15 @@ function Login() {
                         required
                     />
                 </div>
-                <button onClick={onClick} type="submit" className="submit-button">
+                <button
+                    onClick={onClick}
+                    type="submit"
+                    className="submit-button"
+                >
                     Войти
                 </button>
             </form>
-            {errorAuth 
-            ? 
-            <p className="error-text">Ошибка, пожалуйста, проверьте корректность данных</p>
-            :
-            null
-            }
+            <p className="error-text">{errorAuth}</p>
             <p className="redirect">
                 Нет аккаунта? <Link to="/registration">Зарегистрируйтесь</Link>
             </p>

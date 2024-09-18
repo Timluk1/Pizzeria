@@ -1,11 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AuthData, AuthResponse, AuthErrorResponse, isAccesTokenValidResponse } from "./types";
 
+const API_PATH = import.meta.env.VITE_API_PATH;
+
 const registration = createAsyncThunk<AuthResponse, AuthData, { rejectValue: AuthErrorResponse }>(
     'users/registration',
     async (userData, { rejectWithValue }) => {
         try {
-            const res = await fetch("http://localhost:4000/api/registration", {
+            const res = await fetch(`${API_PATH}/registration`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -31,7 +33,7 @@ const login = createAsyncThunk<AuthResponse, AuthData, { rejectValue: AuthErrorR
     'users/login',
     async (userData, { rejectWithValue }) => {
         try {
-            const res = await fetch("http://localhost:4000/api/login", {
+            const res = await fetch(`${API_PATH}/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -61,7 +63,7 @@ const validateAndRefreshToken = createAsyncThunk<AuthResponse, void, { rejectVal
                 authorization: "Bearer " + localStorage.getItem("accessToken"),
             };
 
-            const res = await fetch("http://localhost:4000/api/access", {
+            const res = await fetch(`${API_PATH}/access`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -74,7 +76,7 @@ const validateAndRefreshToken = createAsyncThunk<AuthResponse, void, { rejectVal
 
             
             if (!data.isAccessTokenValid) {
-                const res = await fetch("http://localhost:4000/api/refresh", {
+                const res = await fetch(`${API_PATH}/refresh`, {
                     method: "GET",
                     credentials: "include",
                 });

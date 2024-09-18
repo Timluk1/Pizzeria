@@ -4,7 +4,6 @@ const errorMiddleware = (err, req, res, next) => {
     let statusCode = 500; // Значение по умолчанию для неизвестных ошибок
     let message = "Internal Server Error"; // Сообщение по умолчанию
 
-    console.log(err.message)
     if (err instanceof ValidationError) {
         statusCode = err.status || 400;
         message = err.message || "Validation Error";

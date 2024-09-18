@@ -39,7 +39,7 @@ function Home() {
             <Products products={products}/>
         </>
     ) : (
-        <Navigate to="/login" replace />
+        <Navigate to="/login"/>
     );
 }
 

@@ -2,22 +2,29 @@ import Home from "./pages/Home/Home";
 import LoginPage from "./pages/LoginPage/LoginPage.tsx";
 import RegistartionPage from "./pages/RegistrationPage/RegistartionPage.tsx";
 import CartPage from "./pages/Cart/Cart.tsx";
-import Container from "./components/Container/Container.tsx";
+import Container from "./components/Helps/Container/Container.tsx";
 import EmptyCart from "./pages/EmptyCart/EmptyCart.tsx";
 import Menu from "./components/Helps/Menu/Menu.tsx";
 import Header from "./components/Home/Header/Header.tsx";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
 
 function App() {
     const [showMenu, setShowMenu] = useState<boolean>(false);
+    const location = useLocation();
+    let showCartIndicator = false;
+    
+    if (location.pathname === "/home") {
+        showCartIndicator = true;
+    }
 
     return (
         <div className="app">
             <Container>
                 <Header
                     setShowMenu={setShowMenu}
+                    showCartIndicator={showCartIndicator}
                 />
 
                 <Menu 
