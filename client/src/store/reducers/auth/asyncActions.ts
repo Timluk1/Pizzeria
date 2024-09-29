@@ -80,6 +80,12 @@ const validateAndRefreshToken = createAsyncThunk<AuthResponse, void, { rejectVal
                     method: "GET",
                     credentials: "include",
                 });
+                if (!res.ok) {
+                    localStorage.removeItem("isAuth");
+                    localStorage.removeItem("accessToken");
+                    localStorage.removeItem("email");
+                    localStorage.removeItem("userId");
+                }
 
                 const data = await res.json();
                 return {refresh: true, ...data };

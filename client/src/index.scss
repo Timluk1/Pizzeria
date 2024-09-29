@@ -1,3 +1,5 @@
+@import "./light-dark-theme.scss";
+
 * {
     font-family: "Roboto", sans-serif;
     font-style: normal;
@@ -8,12 +10,11 @@
 
 body {
     padding: 43px 0px 0px 0px;
-    background-color: #FFDF8C;
+    background-color: var(--background-secondary); 
     @media (max-width: 500px) {
-        background-color: white;
-        padding: 0px;
+      padding: 0px;
     }
-}
+  }
 
 .app {
     position: relative;
@@ -21,7 +22,7 @@ body {
     width: 100%;
     max-width: 1340px;
     padding: 49px 0px 100px 0px;
-    background-color: white;
+    background-color: var(--background-primary);
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.03);
     border-radius: 10px;
     @media (max-width: 500px) {

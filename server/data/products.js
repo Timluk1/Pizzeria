@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import ProductModel from "../models/product-model.js";  // Предполагаем, что модель импортируется правильно
 
-const PATH = "http://localhost/api/"
+const PATH = process.env.BASE_URL;
 
 export const products = [  
     {

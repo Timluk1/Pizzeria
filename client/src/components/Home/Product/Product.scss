@@ -58,7 +58,7 @@
         text-align: center;
         color: #2c2c2c;
         border: none;
-        background-color: #f2f2f2;
+        background-color: #edecec;
         border-radius: 4px;
         transition: all 0.3s ease;
 
@@ -68,7 +68,7 @@
         }
 
         &:hover {
-            background-color: #ddd;
+            background-color: #CACACA;
         }
     }
 
@@ -138,18 +138,18 @@
         transition: background-color 0.3s ease;
 
         &:hover {
-            background-color: #f7f7f7;
+            background-color: #CACACA;
         }
 
         &-text {
             font-weight: 600;
             font-size: 14px;
-            color: #eb5a1e;
+            color: #fe5f1e;
             margin-right: 5px;
         }
 
         &-quantity-box {
-            background-color: #eb5a1e;
+            background-color: #fe5f1e;
             padding: 4px 8px;
             border-radius: 20px;
         }

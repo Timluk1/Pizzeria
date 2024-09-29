@@ -1,0 +1,29 @@
+$primary-color: #fe5f1e;
+$secondary-color: #FFDF8C;
+$neutral-color-light: #ffffff;
+$neutral-color-medium-light: #CACACA;
+$alert-color: #FF0000;
+$neutral-color-dark: #2c2c2c;
+$neutral-color-medium-dark: #333;
+$background-light: #f9f9f9;
+$background-neutral: #edecec;
+
+
+
+:root {
+  --white-0: #ffffff;
+  --yellow-0: #ffdf8c;
+  --black: #000000;
+
+  --text-primary: var(--white-0);
+  --text-secondary: var(--black);
+
+  --background-primary: var(--white-0);
+  --background-secondary: var(--yellow-0);
+}
+
+[data-theme="dark"] {
+  --white-0: #ffffff;
+
+  --text-primary: var(--white-0);
+}
