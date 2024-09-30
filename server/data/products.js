@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import ProductModel from "../models/product-model.js";  // Предполагаем, что модель импортируется правильно
 
-const PATH = process.env.BASE_URL;
+const PATH = "http://localhost:4000/api/";
 
 export const products = [  
     {
@@ -15,7 +15,7 @@ export const products = [
         sizeTypes: [
             { size: 26, factor: 1 },
             { size: 30, factor: 1.4 },
-            { size: 40, factor: 1.9 },
+            { size: 40, factor: 1.9 }, 
         ],
     },
     {

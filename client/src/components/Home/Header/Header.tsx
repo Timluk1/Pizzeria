@@ -1,8 +1,9 @@
 import PizzaIcon from "../../../assets/icons/pizza-icon.svg";
 import CartIndicator from "../CartIndicator/CartIndicator";
 import { useAppSelector } from "../../../hooks/useAppSelector";
-import MenuIcon from "../../../assets/icons/icon-menu.svg";
 import { HeaderProps } from "./types";
+import MenuIcon from "../../Helps/MenuIcon/MenuIcon";
+import ChangeMode from "../../Helps/ChangeMode/ChangeMode";
 import "./Header.scss";
 
 function Header({setShowMenu, showCartIndicator}: HeaderProps) {
@@ -19,12 +20,15 @@ function Header({setShowMenu, showCartIndicator}: HeaderProps) {
                         <p className="header__text">самая вкусная пицца</p>
                     </div>
                 </div>
-                {isAuth && (
+                <div className="header__buttons">
+                    <ChangeMode />
+                    {isAuth && (
                     <>
                         {showCartIndicator ? <CartIndicator /> : null}
-                        <img src={MenuIcon} alt="" className="menu-burger" onClick={handleClickMenu}/>
+                        <MenuIcon onClick={handleClickMenu}/>
                     </>
-                )}
+                )   }
+                </div>
             </header>
 
             <div className="line"></div>

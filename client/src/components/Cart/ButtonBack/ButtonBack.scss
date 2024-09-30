@@ -20,7 +20,7 @@
         }
     }
     &:hover {
-        background: #f3f3f3;
+        background: var(--background-quinary);
     }
 
     @media (max-width: 500px) {

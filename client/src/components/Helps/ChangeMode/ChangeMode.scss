@@ -1,0 +1,36 @@
+.change-mode {
+    position: relative;
+    width: 65px;
+    height: 40px;
+    padding: 0px 5px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--background-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+
+    &__modes {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        font-size: 18px;
+    }
+
+    &__circle {
+        position: absolute;
+        background-color: var(--text-secondary);
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        transition: left 0.3s ease;
+        left: 5px;
+        &-active {
+            left: calc(100% - 30px);
+        }
+    }
+}

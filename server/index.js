@@ -4,13 +4,11 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import { router } from "./router/index.js";
 import errorMiddleware from "./middlewares/error-middleware.js"
-import { main2 } from "./data/products.js";
 import "dotenv/config";
 
 async function main() {
     try { 
         await mongoose.connect(process.env.MONGO_PATH);
-        await main2();
         console.log("DB CONNECT");
     } catch (error) {
         console.log("DB ERROR", error);
