@@ -1,0 +1,48 @@
+:root {
+  --white-0: #ffffff;
+  --yellow-0: #ffdf8c;
+  --orange-1: #ff8f53;
+  --orange-2: #fe5f1e;
+  --gray-1: #eef1f6;
+  --red:  #FF0000;
+  --black: #000000;
+
+  --text-primary: var(--white-0);
+  --text-secondary: var(--black);
+  --text-static: var(--white-0);
+  --text-error: var(--red);
+
+  --background-card: var(--white-0);
+  --background-primary: var(--white-0);
+  --background-secondary: var(--yellow-0);
+  --background-quaternary: var( --orange-2);
+  --background-quinary: var(--gray-1);
+  --background-senary: var(--orange-1);
+
+  --shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --white-0: #e0e0e0;
+  --orange-2: #bd4200;
+  --orange-1: #ff6f20;
+  --red:  #FF0000;
+  --black: #000000;
+  --gray-1: #CACACA;
+  --gray-2: #2a2a2a;
+  --gray-3: #121212;
+
+  --text-primary: var(--black);
+  --text-secondary: var(--white-0);
+  --text-static: var(--white-0);
+  --text-error: var(--red);
+
+  --background-card: var(--gray-2);
+  --background-primary: var(--gray-3);
+  --background-secondary: var(--gray-2); 
+  --background-quaternary: var(--orange-1);
+  --background-quinary: var(--gray-2);
+  --background-senary: var(--orange-2);
+
+  --shadow: 0px 3px 3px rgba(255, 255, 255, 0.1);
+}

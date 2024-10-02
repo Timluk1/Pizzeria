@@ -1,10 +1,10 @@
 .register-container {
-    background-color: #fff;
+    background-color: var(--background-primary);
     border-radius: 15px;
     padding: 40px;
     box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
     max-width: 400px;
-    margin: 0px auto;
+    margin: 0 auto;
     text-align: center;
 
     @media (max-width: 600px) {
@@ -13,7 +13,7 @@
     }
 
     .error-text {
-        color: red;
+        color: var(--text-error);
         font-size: 14px;
 
         @media (max-width: 600px) {
@@ -24,7 +24,7 @@
     h2 {
         margin-bottom: 20px;
         font-size: 24px;
-        color: #2c2c2c;
+        color: var(--text-secondary);
 
         @media (max-width: 600px) {
             font-size: 20px;
@@ -43,7 +43,7 @@
                 display: block;
                 font-size: 14px;
                 margin-bottom: 5px;
-                color: #2c2c2c;
+                color: var(--text-secondary); 
 
                 @media (max-width: 600px) {
                     font-size: 12px;
@@ -53,13 +53,22 @@
             input {
                 width: 100%;
                 padding: 10px;
-                border: 1px solid #ccc;
                 border-radius: 8px;
                 font-size: 16px;
-
+                background-color: var(--background-primary);
+                border: 1px solid var(--gray-1); 
+                color: var(--text-secondary);
+                box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+            
                 @media (max-width: 600px) {
                     padding: 8px;
                     font-size: 14px;
+                }
+            
+                &:focus {
+                    box-shadow: 0 0 5px var(--background-quaternary);
+                    outline: none;
+                    border-color: var(--background-quaternary); 
                 }
             }
         }
@@ -67,8 +76,8 @@
         .submit-button {
             width: 100%;
             padding: 15px;
-            background-color: #fe5f1e;
-            color: #fff;
+            background-color: var(--background-quaternary);
+            color: var(--text-static);
             border: none;
             border-radius: 30px;
             cursor: pointer;
@@ -82,7 +91,7 @@
             }
 
             &:hover {
-                background-color: #d94813;
+                background-color: var(--background-senary);
             }
         }
     }
@@ -90,7 +99,7 @@
     .redirect {
         margin-top: 15px;
         font-size: 14px;
-        color: #2c2c2c;
+        color: var(--text-secondary); 
 
         @media (max-width: 600px) {
             font-size: 12px;
@@ -98,7 +107,7 @@
         }
 
         a {
-            color: #fe5f1e;
+            color: var(--background-quaternary);
             text-decoration: none;
 
             &:hover {

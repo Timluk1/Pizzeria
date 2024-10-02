@@ -1,5 +1,5 @@
 .product {
-    background-color: #fff;
+    background-color:  var(--background-card);
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
@@ -22,16 +22,16 @@
         font-size: 16px;
         line-height: 20px;
         letter-spacing: 0.01em;
-        color: #000;
+        color: var(--text-secondary);
         margin-bottom: 10px;
     }
 
     &__options {
         padding: 10px;
-        background-color: #f9f9f9;
+        background-color: var(--background-primary);
         border-radius: 6px;
-        margin-bottom: 10px;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        margin-bottom: 15px;
+        box-shadow: var(--shadow);
         @media (max-width: 768px) {
             padding: 8px;
         }
@@ -56,19 +56,20 @@
         font-size: 12px;
         line-height: 15px;
         text-align: center;
-        color: #2c2c2c;
+        color: var(--text-secondary);
         border: none;
-        background-color: #f2f2f2;
+        background-color: var(--background-quinary);
         border-radius: 4px;
         transition: all 0.3s ease;
 
         &-active {
-            background-color: #fff;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: var(--background-primary);
+            color: var(--text-secondary);
+            box-shadow: var(--shadow);
         }
 
         &:hover {
-            background-color: #ddd;
+            background-color: var(--background-primary);
         }
     }
 
@@ -76,8 +77,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-top: 10px;
-        border-top: 1px solid #e5e5e5;
         margin-top: 10px;
         @media (max-width: 768px) {
             display: flex;
@@ -91,7 +90,7 @@
         font-weight: 700;
         font-size: 18px;
         line-height: 22px;
-        color: #000;
+        color: var(--text-secondary);
         @media (max-width: 768px) {
             margin-bottom: 8px;
         }
@@ -100,7 +99,7 @@
     &__add-button {
         display: flex;
         align-items: center;
-        background-color: #FE5F1E;
+        background-color: var(--background-quaternary);
         padding: 8px 15px;
         border: none;
         border-radius: 20px;
@@ -138,18 +137,18 @@
         transition: background-color 0.3s ease;
 
         &:hover {
-            background-color: #f7f7f7;
+            background-color: #CACACA;
         }
 
         &-text {
             font-weight: 600;
             font-size: 14px;
-            color: #eb5a1e;
+            color: var(--background-quaternary);
             margin-right: 5px;
         }
 
         &-quantity-box {
-            background-color: #eb5a1e;
+            background-color: var(--background-quaternary);
             padding: 4px 8px;
             border-radius: 20px;
         }

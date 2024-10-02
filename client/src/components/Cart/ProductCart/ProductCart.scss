@@ -6,7 +6,7 @@
     border: 1px solid #e2e2e2;
     border-radius: 8px;
     margin-bottom: 15px;
-    background-color: #fff;
+    background-color: var(--background-card);
 
     &__details {
         display: flex;
@@ -41,6 +41,7 @@
     &__title {
         font-size: 18px;
         font-weight: bold;
+        color: var(--text-secondary);
         margin: 0;
         @media (max-width: 700px) {
             font-size: 24px;
@@ -70,6 +71,10 @@
         }
     }
 
+    &__count {
+        color: var(--text-secondary);
+    }
+
     &__button {
         background-color: transparent;
         border: 1px solid #e2e2e2;
@@ -84,10 +89,11 @@
     }
 
     &__button--minus, &__button--plus {
-        border: 2px solid #FE5F1E;  
+        border: 2px solid var(--background-quaternary);  
     }
 
     &__price {
+        color: var(--text-secondary);
         font-size: 18px;
         font-weight: bold;
         margin: 0 20px;

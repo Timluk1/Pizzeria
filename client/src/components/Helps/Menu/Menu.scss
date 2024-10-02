@@ -4,7 +4,7 @@
     top: 0px;
     width: 320px;
     overflow: hidden;
-    background-color: white;
+    background-color: var(--background-card);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     z-index: 1000;
@@ -22,12 +22,6 @@
         display: flex;
         justify-content: flex-end;
         padding: 10px;
-
-        .menu-close-icon {
-            width: 35px;
-            height: 35px;
-            cursor: pointer;
-        }
     }
 
     .menu-content {
@@ -39,12 +33,15 @@
         .menu-item {
             margin-bottom: 10px;
             font-size: 14px;
-            color: #333;
+            &-value {
+                color: var(--text-secondary);
+            }
+            color:var(--text-secondary);
         }
 
         .menu-button {
-            background-color: #ff6b00;
-            color: white;
+            background-color: var(--background-quaternary);
+            color: var(--text-static);
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -55,7 +52,7 @@
         }
 
         .menu-button:hover {
-            background-color: #e55a00;
+            background-color: var(--background-senary);
         }
     }
 

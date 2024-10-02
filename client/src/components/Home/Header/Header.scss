@@ -5,7 +5,10 @@
     justify-content: space-between;
     margin: 0 auto;
     margin-bottom: 40px;
-
+    &__buttons {
+        display: inline-flex;
+        align-items: center;
+    }
     &__icon {
         margin-right: 17px;
         width: 33px;
@@ -18,7 +21,7 @@
         line-height: 29px;
         letter-spacing: 0.01em;
         text-transform: uppercase;
-        color: #181818;
+        color: var(--text-secondary);
     }
 
     &__content {
@@ -31,23 +34,11 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 19px;
-        color: #7B7B7B;
-    }
-
-    .menu-burger {
-        width: 35px;
-        height: 35px;
-        display: none;
+        color: var(--text-secondary);
     }
 
     @media (max-width: 700px) {
         margin-bottom: 20px;
-
-        .menu-burger {
-            display: block;
-            width: 30px;
-            height: 30px;
-        }
 
         &__content {
             margin-bottom: 10px;
@@ -76,7 +67,7 @@
 .line {
     height: 1px;
     width: 100%;
-    background-color: #F6F6F6;
+    background-color: var(--background-quinary);
     margin-bottom: 40px;
 
     @media (max-width: 768px) {

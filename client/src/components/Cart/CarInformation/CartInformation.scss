@@ -1,4 +1,8 @@
 .cart-information {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--background-quinary);
     &__item {
         display: flex;
         justify-content: space-between;
@@ -6,13 +10,13 @@
 
         &-label {
             font-size: 16px;
-            color: #333;
+            color: var(--text-secondary);
         }
 
         &-value {
             font-size: 16px;
             font-weight: 600;
-            color: #000;
+            color: var(--text-secondary);
         }
     }
 
@@ -24,19 +28,13 @@
         &-label {
             font-size: 18px;
             font-weight: 500;
-            color: #333;
+            color: var(--text-secondary);
         }
 
         &-value {
             font-size: 18px;
             font-weight: 700;
-            color: #000;
+            color: var(--text-secondary);
         }
     }
-
-    margin-bottom: 40px;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    background-color: #f9f9f9;
 }

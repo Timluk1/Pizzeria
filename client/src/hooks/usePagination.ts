@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 export function usePagination<T>(data: T[]) {
     const numberProductOnOnePage = 4;
@@ -12,5 +12,7 @@ export function usePagination<T>(data: T[]) {
 
     const currentData =  data.slice(start, end);
 
-    return {activePage, setActivePage, numberOfPages, currentData}
+    const handleSetActivePage = useCallback((num: number) => setActivePage(num), []);
+
+    return {activePage, handleSetActivePage, numberOfPages, currentData}
 }

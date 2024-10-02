@@ -2,9 +2,9 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    background-color: #FE5F1E; 
+    background-color: var(--background-quaternary); 
     padding: 10px 15px;
-    border: 1px solid #FE5F1E;
+    border: 1px solid var(var(--background-quaternary));
     border-radius: 30px;
     transition: background-color 0.3s;
 
@@ -16,7 +16,7 @@
       font-weight: 700;
       font-size: 16px;
       line-height: 19px;
-      color: #FFFFFF;
+      color: var(--color-bg);
       margin-right: 7px;
     }
 

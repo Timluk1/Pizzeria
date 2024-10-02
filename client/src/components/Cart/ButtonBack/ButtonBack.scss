@@ -5,7 +5,7 @@
     padding: 15px;
     display: flex;
     align-items: center;
-    background: #FFFFFF;
+    background: var(--color-bg);
     &__img {
         margin-right: 8px;
     }
@@ -20,7 +20,7 @@
         }
     }
     &:hover {
-        background: #f3f3f3;
+        background: var(--background-quinary);
     }
 
     @media (max-width: 500px) {

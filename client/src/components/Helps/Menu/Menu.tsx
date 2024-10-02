@@ -1,8 +1,8 @@
-import IconCross from "../../../assets/icons/icon-cross.svg";
 import { MenuProps } from "./types";
 import { useAppSelector } from "../../../hooks/useAppSelector";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./Menu.scss";
+import CloseMenuIcon from "../CloseMenuIcon/CloseMenuIcon";
 
 function Menu({ showMenu, setShowMenu }: MenuProps) {
     const cartSum = useAppSelector((state) => state.cart.cartSum);
@@ -46,12 +46,7 @@ function Menu({ showMenu, setShowMenu }: MenuProps) {
     return (
         <div className={className}>
             <div className="menu-header">
-                <img
-                    src={IconCross}
-                    alt="Закрыть меню"
-                    className="menu-close-icon"
-                    onClick={handleClickClose}
-                />
+                <CloseMenuIcon onClick={handleClickClose}/>
             </div>
             <div className="menu-content">
                 <div className="menu-item-container">

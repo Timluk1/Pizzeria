@@ -1,6 +1,6 @@
 .type-product {
-    background-color: #f9f9f9;
-    color: #2c2c2c;
+    background-color: var(--background-quinary);
+    color: var(--text-secondary);
     padding: 13px 25px;
     border: none;
     border-radius: 30px;
@@ -18,8 +18,8 @@
     }
 
     &.type-product-active {
-        background-color: #282828;
-        color: #fff;
+        background-color: var(--background-quaternary);
+        color: var(--text-static);
     }
 
     @media (max-width: 768px) {

@@ -40,7 +40,7 @@ function ProductCart({ imgPath, price, quantity, name, doughType, sizeType, prod
             </div>
             {loading && productId === productIdState && doughType === doughTypeState && sizeType == sizeTypeState
             ?
-            <LoaderButton color="#FE5F1E" size={35}/>
+            <LoaderButton color="#fe5f1e" size={35}/>
             :
             <>
                 <div className="product-cart__quantity">

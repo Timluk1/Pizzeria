@@ -3,56 +3,55 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-  
+
     &__button {
-      background-color: transparent;
-      color: #fe5f1e;
-      border: 2px solid #fe5f1e;
-      padding: 5px 12px;
-      cursor: pointer;
-      font-size: 18px;
-      border-radius: 50%;
-      transition: all 0.3s ease;
-  
-      &:hover {
-        background-color: #fe5f1e;
-        color: #fff;
-      }
-  
-      &:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
+        background-color: transparent;
+        color: var(--background-quaternary);
+        border: 2px solid var(--background-quaternary);
+        padding: 5px 12px;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: var(--background-quaternary);
+            color: #fff;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
     }
-  
+
     &__list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      padding: 0;
-      margin: 0;
-      list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
     }
-  
+
     &__item {
-      background-color: #f3f3f3;
-      padding: 8px 12px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 16px;
-      color: #333;
-      transition: all 0.3s ease;
-  
-      &:hover {
-        background-color: #fe5f1e;
-        color: #fff;
-      }
-  
-      &--active {
-        background-color: #fe5f1e;
-        color: #fff;
-        font-weight: bold;
-      }
+        background-color: var(--background-quinary);
+        padding: 8px 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 16px;
+        color: var(--text-secondary);
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: var(--background-quaternary);
+            color: #fff;
+        }
+
+        &--active {
+            background-color: var(--background-quaternary);
+            color: #fff;
+            font-weight: bold;
+        }
     }
-  }
-  
+}

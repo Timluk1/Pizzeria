@@ -10,7 +10,7 @@
         font-size: 32px;
         line-height: 39px;
         letter-spacing: 0.01em;
-        color: #000000;
+        color: var(--text-secondary);
         margin-bottom: 35px;
         text-align: center; 
 
@@ -31,7 +31,7 @@
             grid-template-columns: repeat(3, 1fr); 
             gap: 50px 25px;
         }
-
+ 
         @media (max-width: 1060px) {
             grid-template-columns: repeat(2, 1fr);
             gap: 40px 20px;

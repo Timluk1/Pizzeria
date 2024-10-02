@@ -1,7 +1,7 @@
 .cart-indicator {
     cursor: pointer;
     display: flex;
-    background-color: #FE5F1E;
+    background-color: var(--background-quaternary);
     border-radius: 30px;
     padding: 15px 23px 15px 23px;
     border: none;
@@ -10,7 +10,7 @@
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
-        color: #ffff;
+        color: var(--text-static);
     }   
     &__line {
         margin-right: 13px;
@@ -26,7 +26,7 @@
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
-        color: #FFFFFF;
+        color: var(--text-static);
     }
     @media (max-width: 700px) {
         & {
