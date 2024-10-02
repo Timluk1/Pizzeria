@@ -1,5 +1,5 @@
 import { useAppDispatch } from "./useAppDispatch";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { toggleTheme } from "../store/reducers/settings/settingsSlice";
 import { useAppSelector } from "./useAppSelector";
 
@@ -11,9 +11,9 @@ export const useTheme = () => {
         document.documentElement.setAttribute("data-theme", theme);
     }, [theme]);
 
-    const onChangeTheme = () => {
+    const onChangeTheme = useCallback(() => {
         dispatch(toggleTheme());
-    }
+    }, [])
 
 
     return {theme, onChangeTheme};
