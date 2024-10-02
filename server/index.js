@@ -30,8 +30,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
-app.use("/api", router);
-app.use("/api/images", express.static("uploads"));
+app.use("/", router);
+app.use("/images", express.static("uploads"));
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, (error) => {
