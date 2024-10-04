@@ -16,9 +16,7 @@ git clone https://github.com/Timluk1/Pizzeria.git
 
 <p align="center">
   <video controls>
-    <source src="./github images/work.mp4" type="video/mp4">
-    Ваш браузер не поддерживает встроенные видео.
-  </video>
+    <source src="./github%20images/work.mp4" type="video/mp4">
 </p>
 
 
