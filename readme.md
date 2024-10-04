@@ -12,11 +12,15 @@ git clone https://github.com/Timluk1/Pizzeria.git
 ```
 
 
+
+https://github.com/user-attachments/assets/aeb689ff-5b22-44df-b8a2-74a3d6b04b23
+
+
 ## Как работает приложение
 
 <p align="center">
   <video controls>
-    <source src="./github%20images/work.mp4" type="video/mp4">
+    <source src="https://github.com/user-attachments/assets/592d787f-47fa-4b88-b73f-2eea0d7abf83" type="video/mp4">
 </p>
 
 
@@ -62,6 +66,10 @@ JWT_ACCESS_SECRET="ПРИДУМАЙТЕ ЛЮБУЮ КОМБИНАЦИЮ"
 JWT_REFRESH_SECRET="ПРИДУМАЙТЕ ЛЮБУЮ КОМБИНАЦИЮ"
 PATH_API=http://localhost/api/
 CLIENT_URL=http://localhost
+
+https://github.com/user-attachments/assets/1a2462da-1438-49e4-bcdc-c5ec82d0d70e
+
+
 ```
 - **PORT - порт, на котором запускается бекенд**
 - **MONGO_PATH - ссылка на базу данных**
@@ -82,3 +90,6 @@ docker compose up --build
 Теперь проект запущен
 - **фронтенд: - http://localhost/**
 - **бекенд - http://localhost/api**
+
+
+
