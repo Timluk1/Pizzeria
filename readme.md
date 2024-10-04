@@ -19,8 +19,7 @@ https://github.com/user-attachments/assets/aeb689ff-5b22-44df-b8a2-74a3d6b04b23
 ## Как работает приложение
 
 <p align="center">
-  <video controls>
-    <source src="https://github.com/user-attachments/assets/592d787f-47fa-4b88-b73f-2eea0d7abf83" type="video/mp4">
+  <video src="https://github.com/user-attachments/assets/592d787f-47fa-4b88-b73f-2eea0d7abf83">
 </p>
 
 
