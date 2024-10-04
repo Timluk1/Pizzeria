@@ -12,10 +12,6 @@ git clone https://github.com/Timluk1/Pizzeria.git
 ```
 
 
-
-https://github.com/user-attachments/assets/aeb689ff-5b22-44df-b8a2-74a3d6b04b23
-
-
 ## Как работает приложение
 
 <p align="center">
