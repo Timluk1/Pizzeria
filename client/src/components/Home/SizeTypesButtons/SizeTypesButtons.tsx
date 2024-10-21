@@ -2,7 +2,6 @@ import { SizeTypesButtonsProps } from "./types";
 
 function SizeTypesButtons({ props }: SizeTypesButtonsProps) {
     const { sizeTypes, activeSizeType, onClickChangeSizeType } = props;
-
     return sizeTypes.map(({ size }, index) => (
         <button
             key={index}
