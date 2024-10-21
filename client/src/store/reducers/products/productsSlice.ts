@@ -13,58 +13,6 @@ export const productsSlice = createSlice({
     name: "products",
     initialState,
     reducers: {
-        // изменение дефолтного размера товара
-        changeSize: (state, action) => {
-            const { clickedProductId, newSizeType } = action.payload;
-            state.productsData = state.productsData.map(function ({ productId, sizeType, ...other }) {
-                if (clickedProductId === productId) {
-                    return {
-                        productId,
-                        sizeType: newSizeType,
-                        ...other
-                    }
-                }
-                if (sizeType) {
-                    return {
-                        productId,
-                        sizeType,
-                        ...other
-                    }
-                } else {
-                    return {
-                        productId,
-                        ...other
-                    }
-                }
-            })
-        },
-
-        // изменение дефолтного типа пиццы
-        changeDoughType: (state, action) => {
-            const { clickedProductId, newDoughType } = action.payload;
-            state.productsData = state.productsData.map(function ({ productId, doughType, ...other }) {
-                if (clickedProductId === productId) {
-                    return {
-                        productId,
-                        doughType: newDoughType,
-                        ...other
-                    }
-                }
-                if (doughType) {
-                    return {
-                        productId,
-                        doughType,
-                        ...other
-                    }
-                } else {
-                    return {
-                        productId,
-                        ...other
-                    }
-                }
-            })
-        },
-
         clearProductsData: (state) => {
             state.productsData = [];
         }

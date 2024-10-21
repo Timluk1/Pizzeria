@@ -2,7 +2,7 @@
 import { ProductType } from "../../../store/reducers/products/types";
 // хукт
 import { useAppDispatch } from "../../../hooks/useAppDispatch";
-import { useActions } from "../../../hooks/useActions";
+import { useState } from "react";
 
 import { addProductToCart } from "../../../store/reducers/cart/asyncActions";
 // компоненты
@@ -17,12 +17,11 @@ import "./Product.scss";
 function Product({ quantityInCart, imgPath, name, basePrice, doughTypes, sizeTypes, productId, doughType, sizeType}: ProductType) {
 
     // вызываем хуки
-    const { changeSize, changeDoughType } = useActions();
     const dispatch = useAppDispatch();
 
     // Определяем активный тип теста и размер (если они заданы)
-    const activeDoughType = doughType ? doughType : doughTypes[0];
-    const activeSizeType = sizeType ? sizeType : sizeTypes[0];
+    const [activeDoughType, setActiveDoughType] = useState(doughType ? doughType : doughTypes[0]);
+    const [activeSizeType, setActiveSizeType] = useState(sizeType ? sizeType : sizeTypes[0]);
     const price = Math.round(
         basePrice * activeDoughType.factor * activeSizeType.factor
     );
@@ -47,14 +46,14 @@ function Product({ quantityInCart, imgPath, name, basePrice, doughTypes, sizeTyp
     ) {
         const index: number = Number(event.currentTarget.dataset.index);
         const newDoughType = doughTypes[index];
-        changeDoughType({ newDoughType, clickedProductId: productId });
+        setActiveDoughType(newDoughType)
     }
 
     // Обработчик для изменения размера продукта
     function onClickChangeSizeType(event: React.MouseEvent<HTMLButtonElement>) {
         const index: number = Number(event.currentTarget.dataset.index);
         const newSizeType = sizeTypes[index];
-        changeSize({ newSizeType, clickedProductId: productId});
+        setActiveSizeType(newSizeType);
     }
 
     // Определяем класс кнопки в зависимости от количества в корзине
@@ -69,7 +68,7 @@ function Product({ quantityInCart, imgPath, name, basePrice, doughTypes, sizeTyp
     return (
         <div className="product">
             <div>
-                <img src={imgPath} alt={name} className="product__image" />
+                <img src={imgPath} alt={name} className="product__image" loading="lazy"/>
                 <h3 className="product__name">{name}</h3>
             </div>
             <div>
