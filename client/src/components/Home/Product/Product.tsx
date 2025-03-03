@@ -10,7 +10,6 @@ import ButtonAdd from "../ButtonAdd/ButtonAdd";
 import DoughTypesButtons from "../DoughTypesButtons/DoughTypesButtons";
 import SizeTypesButtons from "../SizeTypesButtons/SizeTypesButtons";
 
-import { validateAndRefreshToken } from "../../../store/reducers/auth/asyncActions";
 // стили
 import "./Product.scss";
 
@@ -36,7 +35,6 @@ function Product({ quantityInCart, imgPath, name, basePrice, doughTypes, sizeTyp
             quantity: 1,
         };
         // послыаем запрос на обновление количества товара в козине
-        await dispatch(validateAndRefreshToken()); // Ждем завершения авторизации
         await dispatch(addProductToCart(productData));
     }
 
