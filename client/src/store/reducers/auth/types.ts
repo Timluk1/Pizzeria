@@ -8,7 +8,6 @@ export interface InitialStateAuth {
     isAuth: boolean,
     loading: boolean | null,
     error: string,
-    accessToken: string,
     email: string,
     userId: string,
 }

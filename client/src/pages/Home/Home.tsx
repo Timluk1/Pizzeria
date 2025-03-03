@@ -1,8 +1,7 @@
 import Products from "../../components/Home/Products/Products";
 import { useAppSelector } from "../../hooks/useAppSelector";
-import { validateAndRefreshToken } from "../../store/reducers/auth/asyncActions";
 import { fetchProducts } from "../../store/reducers/products/asyncActions";
-import { fetchCart } from "../../store/reducers/cart/asyncActions";
+// import { fetchCart } from "../../store/reducers/cart/asyncActions";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { Navigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -18,9 +17,7 @@ function Home() {
     useEffect(() => {
         // Создаем асинхронную функцию для последовательного выполнения действий
         const fetchData = async () => {
-            await dispatch(validateAndRefreshToken()); // Ждем завершения авторизации
             await dispatch(fetchProducts()); // Загружаем продукты только после авторизации
-            await dispatch(fetchCart()); // получаем корзину
         };
 
         fetchData();

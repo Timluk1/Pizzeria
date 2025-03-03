@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { InitialStateAuth } from "./types";
-import { registration, login, validateAndRefreshToken } from "./asyncActions";
+import { registration, login } from "./asyncActions";
 import { getErrorTextAuth } from '../../../utils/auth/authErrosHelps';
 
 // Извлекаем из localstorage данные о пользователе
@@ -8,7 +8,6 @@ const initialState: InitialStateAuth = {
     isAuth: Boolean(localStorage.getItem("isAuth")) || false,
     loading: null,
     error: "",
-    accessToken: String(localStorage.getItem("accesToken")) || "",
     email: String(localStorage.getItem("email")) || "",
     userId: String(localStorage.getItem("userId")) || "",
 }
@@ -20,7 +19,7 @@ const authSlice = createSlice({
     reducers: {
         clearError: (state) => {
             state.error = ""
-        }
+        },
     },
     extraReducers: (builder) => {
         // Регистрация
@@ -36,7 +35,6 @@ const authSlice = createSlice({
                 state.loading = false;
                 const { accessToken, user } = action.payload;
                 state.isAuth = true; // Пользователь авторизован
-                state.accessToken = accessToken; // Сохраняем accessToken
                 state.email = user.email; // Сохраняем email пользователя
                 state.userId = user.id; // Сохраняем ID пользователя
 
@@ -49,9 +47,10 @@ const authSlice = createSlice({
         builder
             .addCase(registration.rejected, (state, action) => {
                 state.loading = false;
-                if (action.payload) {
+                const error = action.payload?.response?.data;
+                if (error) {
                     // если есть ошибка устанавливаем ее в сотояние
-                    state.error = getErrorTextAuth(action.payload);
+                    state.error = getErrorTextAuth(error);
                 }
             })
 
@@ -68,7 +67,6 @@ const authSlice = createSlice({
                 state.loading = false;
                 const { accessToken, user } = action.payload;
                 state.isAuth = true; // Пользователь авторизован
-                state.accessToken = accessToken; // Сохраняем accessToken
                 state.email = user.email; // Сохраняем email пользователя
                 state.userId = user.id; // Сохраняем ID пользователя
 
@@ -82,39 +80,12 @@ const authSlice = createSlice({
         builder
             .addCase(login.rejected, (state, action) => {
                 state.loading = false;
-                if (action.payload) {
+                const error = action.payload?.response?.data;
+                if (error) {
                     // если есть ошибка устанавливаем ее в сотояние
-                    state.error = getErrorTextAuth(action.payload);
+                    state.error = getErrorTextAuth(error);
                 }
             })
-
-        builder
-            .addCase(validateAndRefreshToken.fulfilled, (state, action) => {
-                // получаем данные
-                const { refresh, accessToken, user } = action.payload;
-                if (refresh) {
-                    state.accessToken = accessToken;
-                    state.email = user.email;
-                    state.userId = user.id;
-
-                    // устонавливаем в localstorage все данные
-                    localStorage.setItem("accessToken", accessToken);
-                    localStorage.setItem("email", user.email);
-                    localStorage.setItem("userId", user.id);
-                }
-            })
-        builder
-            .addCase(validateAndRefreshToken.rejected, (state, action) => {
-                state.loading = false;
-                console.error("Token validation error:", action.payload);
-                state.isAuth = false;
-
-                // в случае ошибки по рефрешу токена пользователь становится не авторизованным
-                localStorage.removeItem("isAuth");
-                localStorage.removeItem("accessToken");
-                localStorage.removeItem("email");
-                localStorage.removeItem("userId");
-            });
     }
 })
 

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import ArrowIcon from "../../../assets/icons/arrow-icon.svg"
-import "./ButtonBack.scss";
 import { useActions } from "../../../hooks/useActions";
+import "./ButtonBack.scss";
 
 function ButtonBack() {
     const navigate = useNavigate();

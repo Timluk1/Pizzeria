@@ -5,7 +5,6 @@ import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { useEffect } from "react";
 import { fetchCart } from "../../store/reducers/cart/asyncActions";
-import { validateAndRefreshToken } from "../../store/reducers/auth/asyncActions";
 import LoaderButton from "../../components/Helps/LoaderButton/LoaderButton";
 import { Navigate, useNavigate } from "react-router-dom"; // Импорт useNavigate
 import CartInformation from "../../components/Cart/CarInformation/CartInformation";
@@ -22,7 +21,6 @@ function Cart() {
 
     useEffect(() => {
         async function fetchData() {
-            await dispatch(validateAndRefreshToken());
             await dispatch(fetchCart());
         }
         fetchData();

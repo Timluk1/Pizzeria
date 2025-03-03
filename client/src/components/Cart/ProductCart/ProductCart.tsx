@@ -7,7 +7,6 @@ import { addProductToCart } from "../../../store/reducers/cart/asyncActions";
 import { deleteProductFromCart } from "../../../store/reducers/cart/asyncActions";
 import { useAppDispatch } from "../../../hooks/useAppDispatch";
 import { useAppSelector } from "../../../hooks/useAppSelector";
-import { validateAndRefreshToken } from "../../../store/reducers/auth/asyncActions";
 import "./ProductCart.scss";
 
 function ProductCart({ imgPath, price, quantity, name, doughType, sizeType, productId }: Product) {
@@ -15,17 +14,14 @@ function ProductCart({ imgPath, price, quantity, name, doughType, sizeType, prod
     const { loading, productIdState, doughTypeState, sizeTypeState} = useAppSelector((state) => state.cart.addProductToCartDetailed);
     
     async function handleIncrease() {
-        await disptach(validateAndRefreshToken());
         await disptach(addProductToCart({productId, doughType, sizeType, quantity: 1}));
     };  
 
     async function handleDecrease() {
-        await disptach(validateAndRefreshToken());
         await disptach(deleteProductFromCart({productId, doughType, sizeType, quantity: 1}));
     };
 
     async function handleRemove () {
-        await disptach(validateAndRefreshToken());
         await disptach(deleteProductFromCart({productId, doughType, sizeType, quantity}));
     };
 

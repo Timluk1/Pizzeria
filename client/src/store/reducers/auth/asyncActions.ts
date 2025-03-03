@@ -1,109 +1,30 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AuthData, AuthResponse, AuthErrorResponse, isAccesTokenValidResponse } from "./types";
+import { AuthData, AuthResponse, AuthErrorResponse, } from "./types";
+import { axiosBasic } from '../../../utils/axios/interceptors';
+import { AxiosError } from 'axios';
 
-const API_PATH = import.meta.env.VITE_API_PATH;
-
-const registration = createAsyncThunk<AuthResponse, AuthData, { rejectValue: AuthErrorResponse }>(
+const registration = createAsyncThunk<AuthResponse, AuthData, { rejectValue: AxiosError<AuthErrorResponse> }>(
     'users/registration',
     async (userData, { rejectWithValue }) => {
-        try {
-            const res = await fetch(`${API_PATH}/registration`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(userData),
-                credentials: 'include'
-            });
-
-            const data = await res.json();
-
-            if (!res.ok) {
-                return rejectWithValue(data);
-            }
-
+        try {   
+            const { data } = await axiosBasic.post("/registration", userData);
             return data;
         } catch (error) {
-            return rejectWithValue(error as AuthErrorResponse);
+            return rejectWithValue(error as AxiosError<AuthErrorResponse>);
         }
     }
 );
 
-const login = createAsyncThunk<AuthResponse, AuthData, { rejectValue: AuthErrorResponse }>(
+const login = createAsyncThunk<AuthResponse, AuthData, { rejectValue: AxiosError<AuthErrorResponse> }>(
     'users/login',
     async (userData, { rejectWithValue }) => {
         try {
-            const res = await fetch(`${API_PATH}/login`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(userData),
-                credentials: 'include'
-            });
-
-            const data = await res.json();
-
-            if (!res.ok) {
-                return rejectWithValue(data);
-            }
-
+            const { data } = await axiosBasic.post("/login", userData);
             return data;
         } catch (error) {
-            return rejectWithValue(error as AuthErrorResponse);
+            return rejectWithValue(error as AxiosError<AuthErrorResponse>);
         }
     }
 );
 
-const validateAndRefreshToken = createAsyncThunk<AuthResponse, void, { rejectValue: AuthErrorResponse }>(
-    'users/isAccesTokenValid',
-    async (_, { rejectWithValue }) => {
-        try {
-            const authData = {
-                authorization: "Bearer " + localStorage.getItem("accessToken"),
-            };
-
-            const res = await fetch(`${API_PATH}/access`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    ...authData,
-                },
-                credentials: "include",
-            });
-
-            const data: isAccesTokenValidResponse = await res.json();
-
-            
-            if (!data.isAccessTokenValid) {
-                const res = await fetch(`${API_PATH}/refresh`, {
-                    method: "GET",
-                    credentials: "include",
-                });
-                if (!res.ok) {
-                    localStorage.removeItem("isAuth");
-                    localStorage.removeItem("accessToken");
-                    localStorage.removeItem("email");
-                    localStorage.removeItem("userId");
-                }
-
-                const data = await res.json();
-                return {refresh: true, ...data };
-            }
-
-            return {
-                refresh: false,
-                accessToken: String(localStorage.getItem("accessToken")) || "",
-                user: {
-                    email: String(localStorage.getItem("email")) || "",
-                    id: String(localStorage.getItem("userId")) || "",
-                }
-            };
-            
-        } catch (error) {
-            return rejectWithValue(error as AuthErrorResponse);
-        }
-    }
-);
-
-export { registration, login, validateAndRefreshToken };
+export { registration, login };

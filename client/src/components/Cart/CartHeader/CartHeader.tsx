@@ -3,12 +3,10 @@ import TrashIcon from "../../../assets/icons/trash.svg";
 import { deleteFullCart } from "../../../store/reducers/cart/asyncActions";
 import { useAppDispatch } from "../../../hooks/useAppDispatch";
 import "./CartHeader.scss";
-import { validateAndRefreshToken } from "../../../store/reducers/auth/asyncActions";
 
 function CartHeader() {
     const dispatch = useAppDispatch();
     async function deleteAllCart() {
-        await dispatch(validateAndRefreshToken());
         await dispatch(deleteFullCart())
     }
     return (
