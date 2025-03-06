@@ -6,7 +6,7 @@ import { useAppSelector } from "../../hooks/useAppSelector";
 import { useEffect } from "react";
 import { fetchCart } from "../../store/reducers/cart/asyncActions";
 import LoaderButton from "../../components/Helps/LoaderButton/LoaderButton";
-import { Navigate, useNavigate } from "react-router-dom"; // Импорт useNavigate
+import { useNavigate } from "react-router-dom"; 
 import CartInformation from "../../components/Cart/CarInformation/CartInformation";
 
 function Cart() {
@@ -17,7 +17,6 @@ function Cart() {
     const loadingClearCart = useAppSelector(
         (state) => state.cart.clearAllCart.loading
     );
-    const isAuth = useAppSelector((state) => state.auth.isAuth);
 
     useEffect(() => {
         async function fetchData() {
@@ -32,7 +31,7 @@ function Cart() {
         }
     }, [loading, products, navigate]);
 
-    return isAuth ? (
+    return (
         <div className="cart">
             {loading || products === null || loadingClearCart ? (
                 <LoaderButton color="#FE5F1E" size={180} />
@@ -45,9 +44,7 @@ function Cart() {
                 </>
             )}  
         </div>
-    ) : (
-        <Navigate to="/login" />
-    );
+    )
 }
 
 export default Cart;
